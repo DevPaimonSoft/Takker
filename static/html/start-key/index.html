@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>TAKKER</title>
+    <meta name="keywords" content="Ключевые слова" />
+    <meta name="description" content="Описание" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+    <link href="https://dreampoolhack.ru/s/assets/css/styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="https://dreampoolhack.ru/s/assets/img/logo.svg" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <main class="center center__top">
+        <div class="container__mini">
+          <div class="block__top">
+            <a href="/" class="header__logo">
+              <img src="https://dreampoolhack.ru/s/assets/img/logo.svg" alt="" />
+              <span>Takker</span>
+            </a>
+          </div>
+          <div class="block__center">
+            <div class="block">
+              <div class="block__header block__wrapper-left">
+                <div class="block__wrapper-name">Запуск программы</div>
+                <div class="block__wrapper-desc">Введите ключ доступа</div>
+              </div>
+              <div class="block__wrapper">
+                <div class="block__wrapper-label">
+                  <div class="block__wrapper-top">
+                    <span>Ключ доступа</span>
+                  </div>
+                  <div class="block__wrapper-input block__input-copy">
+                    <input class="key" id="key" type="text" placeholder="Введите ключ" autocomplete="off"/>
+                    <button class="copy__input" onclick="paste('key')">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+                        <path fill="#A3A3A3" d="M11.458 1.667c.993 0 1.805.771 1.87 1.747l.005.128c0-.07-.004-.14-.011-.209h1.47c1.035 0 1.875.84 1.875 1.876v11.25c0 1.035-.84 1.875-1.875 1.875H5.208a1.875 1.875 0 0 1-1.875-1.875V5.209c0-1.036.84-1.875 1.875-1.875h1.47a1.892 1.892 0 0 0-.01.147l-.001.061c0-1.036.84-1.875 1.875-1.875h2.916Zm0 3.75H8.542a1.874 1.874 0 0 1-1.577-.86l.017.027H5.208a.625.625 0 0 0-.625.625v11.25c0 .345.28.625.625.625h9.584c.345 0 .625-.28.625-.625V5.209a.625.625 0 0 0-.625-.625h-1.775l.018-.027c-.333.517-.915.86-1.577.86Zm0-2.5H8.542a.625.625 0 0 0 0 1.25h2.916a.625.625 0 0 0 0-1.25Z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="block__wrapper-error" id="error-message" style="display: none; color: red;">Неверный ключ</div>
+                </div>
+                <button id="submit-button" class="button mt16"><span>Далее</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal" id="version">
+      <div class="modal__inner">
+        <div class="modal__content">
+          <div class="modal__header">
+            <span>Рады приветствовать в Takker V2!</span>
+            <span>Вам нужно ввести версию на которой вы будете играть</span>
+          </div>
+          <div class="modal__body">
+            <div class="modal__flex">
+              <div class="block__wrapper-input block__input-copy">
+                <input class="key" style="width: 68%; height: 35px;" id="key" type="text" placeholder="Введите версию (Пример: 1.16.5)" autocomplete="off"/>
+                
+                <button class="button white _close" style="width: 30%; height: 35px;"><span>Готово</span></button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    
+    <script src="https://dreampoolhack.ru/s/assets/js/main.js"></script>
+    <script>
+      openModal('version');
+      document.getElementById('submit-button').addEventListener('click', function() {
+        const key = document.getElementById('key').value;
+
+
+
+        fetch('/activate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `key=${encodeURIComponent(key)}`,
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = '/';
+          } else {
+            document.getElementById('error-message').style.display = 'block';
+          }
+        })
+        .catch(error => {
+          console.error('Ошибка:', error);
+        });
+      });
+    </script>
+  </body>
+</html>

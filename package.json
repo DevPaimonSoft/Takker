@@ -1,0 +1,33 @@
+{
+  "bin": "index.js",
+  "dependencies": {
+    "adm-zip": "^0.5.15",
+    "chalk": "^4.1.2",
+    "clipboardy": "^2.3.0",
+    "colorette": "^2.0.20",
+    "colors": "^1.4.0",
+    "destroy": "^1.2.0",
+    "global": "^4.4.0",
+    "minecraft-protocol": "^1.44.0",
+    "node-emoji": "^2.1.3",
+    "node-hide-console-window": "^2.2.0",
+    "node-machine-id": "^1.1.12",
+    "open": "^10.1.0",
+    "pkg": "^5.8.1",
+    "progress": "^2.0.3",
+    "prompt-sync": "^4.2.0",
+    "unzipper": "^0.10.14",
+    "walkdir": "^0.4.1"
+  },
+  "pkg": {
+    "assets": [
+      "path/to/icon.ico"
+    ],
+    "scripts": "index.js",
+    "targets": [
+      "node16-win-x64"
+    ],
+    "outputPath": "dist",
+    "icon": "path/to/icon.ico"
+  }
+}

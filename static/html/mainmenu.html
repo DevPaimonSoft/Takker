@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takker Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+</head>
+
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+    }
+
+    .background {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(180deg, rgb(15, 15, 15) 0%, rgb(10, 10, 10) 100%);
+    }
+
+    .letter {
+        font-size: 200px;
+        color: rgb(255, 95, 95);
+        filter: blur(25px);
+        z-index: 1;
+        position: absolute;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
+    .player {
+        margin-right: 2px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        background-color: #161616;
+        border-radius: 10px;
+        padding: 15px 20px;
+    }
+
+    .window {
+        width: 800px;
+        height: 500px;
+        background-color: #161616;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        overflow: hidden;
+    }
+
+    .title-bar {
+        background-color: #131313;
+        border-color: #131313;
+        padding: 15px 25px;
+        cursor: move;
+        color: #fff;
+        font-weight: 500;
+    }
+
+    .content {
+        padding: 25px;
+        color: #333;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .player {
+        width: 140px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .player img {
+        width: 100px;
+        height: 200px;
+        margin-top: 10px;
+    }
+
+    .nickname {
+        color: lightcoral;
+        border-radius: 10px;
+        padding: 5px 10px;
+        font-weight: bold;
+        background-color: rgb(20, 20, 20);
+        margin-bottom: 10px;
+    }
+
+    .control-panel {
+        background-color: rgb(25, 25, 25);
+        margin-left: 60px;
+        padding: 25px;
+        border-radius: 15px;
+        width: 70%;
+        max-width: 700px;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .top-section {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: rgb(30, 30, 30);
+        padding: 7px 15px;
+        border-radius: 15px;
+        flex: 2.5;
+    }
+
+    .icon {
+        color: rgb(20, 20, 20);
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    input[type="text"] {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        flex-grow: 1;
+        font-size: 14px;
+    }
+
+    .uid-panel {
+        display: flex;
+        align-items: center;
+        padding: 7px 15px;
+        border-radius: 15px;
+        flex: 1;
+        background-color: rgb(30, 30, 30);
+        position: relative;
+    }
+
+    .uid {
+        background-color: lightcoral;
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 14px;
+        z-index: 1;
+    }
+
+    .number {
+        padding: 5px 15px;
+        background-color: rgb(49, 49, 49);
+        border-radius: 15px;
+        font-size: 14px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        color: white;
+    }
+
+    .features,
+    .themes-panel {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    button {
+        background-color: rgb(20, 20, 20);
+        border: none;
+        padding: 7px 15px;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+        flex-basis: calc(33.333% - 10px);
+        font-size: 14px;
+        height: 40px;
+    }
+
+    button:hover {
+        background-color: rgb(15, 15, 15);
+    }
+
+
+    .theme-button {
+        align-self: flex-end;
+        max-width: 110px;
+        max-height: 35px;
+        padding: 3px 30px;
+        border-radius: 25px;
+        background-color: rgb(20, 20, 20);
+        color: white;
+        border: none;
+        font-size: 14px;
+        transition: 0.3s;
+        margin-top: 125px;
+        margin-left: 650px;
+    }
+
+    .theme-button:hover {
+        background-color: rgb(15, 15, 15);
+    }
+
+    .theme-button.active {
+        background-color: lightcoral;
+    }
+
+    .themes-panel {
+        display: none;
+        gap: 10px;
+    }
+</style>
+
+<body>
+    <div class="background">
+        <span class="letter">T</span>
+        <div class="container">
+            <div class="player">
+                <div class="nickname">{{ USERNAME }}</div>
+                <img src="https://minotar.net/body/{{ USERNAME }}/150.png" alt="Скин Стива">
+            </div>
+            <div class="window">
+                <div class="title-bar">
+                    <span>t4kker.sh ~ Takker.ru</span>
+                </div>
+                <div class="content">
+                    <div class="top-section">
+                        <div class="search-bar">
+                            <span class="icon">🔍</span>
+                            <input type="text" placeholder="Поиск">
+                        </div>
+                        <div class="uid-panel">
+                            <span class="uid">ver</span>
+                            <span class="number">0108</span>
+                        </div>
+                    </div>
+
+                    <div class="features">
+                        <button id="Glow">Glow ESP</button>
+                        <button id="Freecam">Freecam</button>
+                        <button id="mobHits">Mob Hitboxes</button>
+                        <button id="Aimbot">Aimbot</button>
+                        <button id="reach">Reach</button>
+                        <button id="virtualCopy">Virtual Copy</button>
+                        <button id="hider">Hider (Win)</button>
+                        <button id="leaveCloser">Leave Closer</button>
+                        <button id="logsCleaner">Logs Cleaner</button>
+                        <button id="hostSpoofer">Host Spoofer (Win)</button>
+                        <button id="copyCleaner">Copy Cleaner</button>
+                        <button id="fileCleaner">File Cleaner</button>
+                    </div>
+
+                    <button class="theme-button">Themes</button>
+
+                    <div class="themes-panel">
+                        <button data-color="rgb(133, 255, 114)">Зеленая</button>
+                        <button data-color="rgb(255, 255, 114)">Желтая</button>
+                        <button data-color="rgb(114, 185, 255)">Синяя</button>
+                        <button data-color="lightcoral">Красная</button>
+                        <button data-color="rgb(223, 114, 255)">Фиолетовая</button>
+                        <button data-color="rgb(255, 180, 114)">Оранжевая</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(function () {
+        $(".container").draggable({
+            handle: ".title-bar"
+        });
+    });
+</script>
+
+<script>
+    document.querySelectorAll('.features button').forEach(function (button) {
+        button.addEventListener('click', function () {
+            const functionId = this.id;
+            const isActive = this.classList.contains('button-active');
+
+            const username = document.querySelector('.nickname').textContent;
+
+            // Проверка на "None"
+            if (username === "None") {
+                window.location.reload();
+                return;
+            }
+
+            this.classList.toggle('button-active');
+
+            fetch('/toggle-function', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    functionId: functionId,
+                    isActive: !isActive
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.success) {
+                        this.classList.toggle('button-active');
+                        alert('Ошибка при переключении функции.');
+                    }
+                });
+        });
+    });
+
+
+</script>
+
+</html>

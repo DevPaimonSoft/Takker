@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="114" height="114" fill="none" viewBox="0 0 114 114">
+  <g filter="url(#a)">
+    <g clip-path="url(#b)">
+      <rect width="96" height="96" x="9" y="6" fill="#FC2638" rx="24"/>
+      <rect width="96" height="96" x="9" y="6" fill="url(#c)" rx="24"/>
+      <g filter="url(#d)">
+        <path fill="#fff" fill-opacity=".9" d="M35.435 37.823V29.13h40.958v8.693H61.125V79H50.703V37.823H35.435Z" shape-rendering="crispEdges"/>
+      </g>
+      <path stroke="url(#e)" stroke-width="1.5" d="m105 15-9.621 9.621a3 3 0 0 0-.879 2.122v34.264a3 3 0 0 1-.879 2.122L86.38 70.37a3 3 0 0 0-.879 2.122V106.5"/>
+      <path stroke="url(#f)" stroke-width="1.5" d="m9 15 9.621 9.621a3 3 0 0 1 .879 2.122v34.264a3 3 0 0 0 .879 2.122l7.242 7.242a3 3 0 0 1 .879 2.122V106.5"/>
+    </g>
+    <rect width="94.5" height="94.5" x="9.75" y="6.75" stroke="#FC2638" stroke-width="1.5" rx="23.25"/>
+  </g>
+  <defs>
+    <linearGradient id="c" x1="57" x2="57" y1="6" y2="102" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF494D"/>
+      <stop offset="1" stop-color="#FC2638"/>
+    </linearGradient>
+    <linearGradient id="e" x1="95.25" x2="95.25" y1="15" y2="106.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="f" x1="18.75" x2="18.75" y1="15" y2="106.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="a" width="114" height="114" x="0" y="0" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="3"/>
+      <feGaussianBlur stdDeviation="4.5"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_63_5810"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_63_5810" result="shape"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="3"/>
+      <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"/>
+      <feColorMatrix values="0 0 0 0 1 0 0 0 0 0.4 0 0 0 0 0.388235 0 0 0 1 0"/>
+      <feBlend in2="shape" result="effect2_innerShadow_63_5810"/>
+    </filter>
+    <filter id="d" width="52.957" height="61.87" x="29.436" y="29.13" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="6"/>
+      <feGaussianBlur stdDeviation="3"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_63_5810"/>
+      <feBlend in="SourceGraphic" in2="effect1_dropShadow_63_5810" result="shape"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset dy="1.5"/>
+      <feGaussianBlur stdDeviation=".75"/>
+      <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"/>
+      <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+      <feBlend in2="shape" result="effect2_innerShadow_63_5810"/>
+      <feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+      <feOffset/>
+      <feGaussianBlur stdDeviation=".75"/>
+      <feComposite in2="hardAlpha" k2="-1" k3="1" operator="arithmetic"/>
+      <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+      <feBlend in2="effect2_innerShadow_63_5810" result="effect3_innerShadow_63_5810"/>
+    </filter>
+    <clipPath id="b">
+      <rect width="96" height="96" x="9" y="6" fill="#fff" rx="24"/>
+    </clipPath>
+  </defs>
+</svg>
